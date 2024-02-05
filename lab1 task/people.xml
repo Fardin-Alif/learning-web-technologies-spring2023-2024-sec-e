@@ -1,0 +1,26 @@
+<People_info>
+    <people sr="1">
+        <Id>1</Id>
+        <NAME> John Done</NAME>
+         <ADDRESS>
+         <FLAT\>
+        <DEPARTMENT> SALES</DEPARTMENT>
+        <ROAD> 3</ROAD>
+        <HOUSE_NUM> 38</HOUSE_NUM>
+        <CITY> DHAKA</CITY>
+
+    </people_info>
+
+<People_info>
+    <people sr="2">
+        <Id>2</Id>
+        <NAME> Mark Zuckerberg</NAME>
+         <ADDRESS>
+         <FLAT\>
+        <DEPARTMENT> SALES</DEPARTMENT>
+        <ROAD> 3</ROAD>
+        <HOUSE_NUM> 38</HOUSE_NUM>
+        <CITY> DHAKA</CITY>
+
+    </people_info>
+
