@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .event {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EventHub Management System</h1>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search events...">
+            <select id="categoryFilter">
+                <option value="">Filter by category</option>
+                <option value="music">Music</option>
+                <option value="sports">Sports</option>
+                <option value="conference">Conference</option>
+                <!-- Add more categories as needed -->
+            </select>
+            <button onclick="searchEvents()">Search</button>
+        </div>
+
+        <div id="eventList">
+            <!-- Search results and filtered events will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function searchEvents() {
+            var input, filter, categoryFilter, events, eventList, event, i;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            categoryFilter = document.getElementById("categoryFilter").value.toUpperCase();
+            events = document.getElementsByClassName("event");
+            eventList = document.getElementById("eventList");
+
+            // Clear previous search results
+            eventList.innerHTML = '';
+
+            // Loop through all events, hide those that don't match the search query
+            for (i = 0; i < events.length; i++) {
+                event = events[i];
+                if ((event.textContent.toUpperCase().indexOf(filter) > -1) && (categoryFilter === '' || event.getAttribute('data-category').toUpperCase() === categoryFilter)) {
+                    eventList.appendChild(event.cloneNode(true));
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
