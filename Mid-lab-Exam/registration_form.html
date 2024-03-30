@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Registration Form</title>
+</head>
+<body>
+    <h2>Email Registration Form</h2>
+    <form>
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name"><br>
+
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name"><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <select id="dob" name="dob">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <!-- Add more options for days -->
+        </select>
+        <select id="month" name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <!-- Add more options for months -->
+        </select>
+        <select id="year" name="year">
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <!-- Add more options for years -->
+        </select><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password"><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
