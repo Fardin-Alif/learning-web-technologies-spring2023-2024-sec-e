@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Form with JavaScript Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<h2>Email Form with JavaScript Validation</h2>
+
+<form id="emailForm">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <span id="emailError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("emailForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input value
+    var emailInput = document.getElementById("email").value;
+
+    // Validate email field
+    var emailError = document.getElementById("emailError");
+    if (emailInput.trim() === "") {
+        emailError.textContent = "Email is required";
+    } else if (!isValidEmail(emailInput)) {
+        emailError.textContent = "Invalid email format";
+    } else {
+        emailError.textContent = ""; // Clear error message
+        // You can add more validation here if needed
+
+        // If the form is valid, you can proceed with form submission
+        alert("Form submitted successfully!");
+        
+    }
+});
+
+// Function to validate email format without regular expression
+function isValidEmail(email) {
+    var atIndex = email.indexOf('@');
+    var dotIndex = email.lastIndexOf('.');
+
+    // Check if '@' and '.' are present and the dot is after '@'
+    return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+}
+</script>
+
+</body>
+</html>
+

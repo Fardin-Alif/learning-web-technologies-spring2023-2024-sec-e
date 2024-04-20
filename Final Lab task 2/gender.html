@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gender Form with JavaScript Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Gender Form with JavaScript Validation</h2>
+
+<form id="genderForm">
+    <fieldset>
+        <legend>Gender:</legend>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+    </fieldset>
+    <span id="genderError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("genderForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input value
+    var genderInputs = document.getElementsByName("gender");
+    var genderSelected = false;
+
+    // Check if at least one gender option is selected
+    for (var i = 0; i < genderInputs.length; i++) {
+        if (genderInputs[i].checked) {
+            genderSelected = true;
+            break;
+        }
+    }
+
+    // Validate gender selection
+    var genderError = document.getElementById("genderError");
+    if (!genderSelected) {
+        genderError.textContent = "Please select a gender";
+    } else {
+        genderError.textContent = ""; // Clear error message
+        // You can add more validation here if needed
+
+        // If the form is valid, you can proceed with form submission
+        alert("Form submitted successfully!");
+        
+    }
+});
+</script>
+
+</body>
+</html>
+

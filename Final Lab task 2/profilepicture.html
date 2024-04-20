@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Picture Form with JavaScript Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Profile Picture Form with JavaScript Validation</h2>
+
+<form id="profilePictureForm">
+    <fieldset>
+        <legend>Profile Picture:</legend>
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId"><br>
+        <label for="profilePicture">Select Profile Picture:</label>
+        <input type="file" id="profilePicture" name="profilePicture"><br>
+        <span id="profilePictureError" class="error"></span><br>
+    </fieldset>
+    <span id="formError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("profilePictureForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var userIdInput = document.getElementById("userId").value.trim();
+    var profilePictureInput = document.getElementById("profilePicture").value.trim();
+
+    // Validate user ID
+    var userIdError = document.getElementById("profilePictureError");
+    if (userIdInput === "") {
+        userIdError.textContent = "User ID cannot be empty";
+        return; // Stop further validation
+    } else {
+        userIdError.textContent = ""; // Clear error message
+    }
+
+    // Validate profile picture selection
+    var profilePictureError = document.getElementById("profilePictureError");
+    if (profilePictureInput === "") {
+        profilePictureError.textContent = "Please select a profile picture";
+    } else {
+        profilePictureError.textContent = ""; // Clear error message
+        // If the form is valid, you can proceed with form submission
+        alert("Form submitted successfully!");
+       
+    }
+});
+</script>
+
+</body>
+</html>

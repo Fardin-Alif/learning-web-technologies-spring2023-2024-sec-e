@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Person Profile Form with JavaScript Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Person Profile Form</h2>
+
+<form id="personProfileForm">
+    <fieldset>
+        <legend>Name and Email:</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Gender:</legend>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Blood Group:</legend>
+        <input type="radio" id="A+" name="bloodGroup" value="A+">
+        <label for="A+">A+</label>
+        <input type="radio" id="A-" name="bloodGroup" value="A-">
+        <label for="A-">A-</label>
+        <input type="radio" id="B+" name="bloodGroup" value="B+">
+        <label for="B+">B+</label>
+        <input type="radio" id="B-" name="bloodGroup" value="B-">
+        <label for="B-">B-</label><br>
+        <input type="radio" id="AB+" name="bloodGroup" value="AB+">
+        <label for="AB+">AB+</label>
+        <input type="radio" id="AB-" name="bloodGroup" value="AB-">
+        <label for="AB-">AB-</label>
+        <input type="radio" id="O+" name="bloodGroup" value="O+">
+        <label for="O+">O+</label>
+        <input type="radio" id="O-" name="bloodGroup" value="O-">
+        <label for="O-">O-</label><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Degree:</legend>
+        <input type="checkbox" id="hsc" name="degree" value="HSC">
+        <label for="hsc">HSC</label>
+        <input type="checkbox" id="ssc" name="degree" value="SSC">
+        <label for="ssc">SSC</label>
+        <input type="checkbox" id="bsc" name="degree" value="BSC">
+        <label for="bsc">BSC</label>
+        <input type="checkbox" id="msc" name="degree" value="MSC">
+        <label for="msc">MSC</label><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Profile Photo:</legend>
+        <label for="profilePhoto">Select Profile Photo:</label>
+        <input type="file" id="profilePhoto" name="profilePhoto"><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Blank Interface:</legend>
+        <textarea id="blankInterface" name="blankInterface" rows="4" cols="50"></textarea><br>
+    </fieldset>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+
+<script>
+document.getElementById("personProfileForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var nameInput = document.getElementById("name").value.trim();
+    var emailInput = document.getElementById("email").value.trim();
+    var genderInputs = document.getElementsByName("gender");
+    var bloodGroupInputs = document.getElementsByName("bloodGroup");
+    var degreeInputs = document.getElementsByName("degree");
+    var profilePhotoInput = document.getElementById("profilePhoto").value.trim();
+    var blankInterfaceInput = document.getElementById("blankInterface").value.trim();
+
+    // Validate name
+    var nameError = document.getElementById("nameError");
+    if (nameInput === "") {
+        nameError.textContent = "Name cannot be empty";
+        return; // Stop further validation
+    } else {
+        nameError.textContent = ""; // Clear error message
+    }
+
+    // Validate email
+    var emailError = document.getElementById("emailError");
+    if (emailInput === "") {
+        emailError.textContent = "Email cannot be empty";
+        return; // Stop further validation
+    } else {
+        emailError.textContent = ""; // Clear error message
+    }
+
+    // Validate gender selection
+    var genderError = document.getElementById("genderError");
+    var genderSelected = false;
+    for (var i = 0; i < genderInputs.length; i++) {
+        if (genderInputs[i].checked) {
+            genderSelected = true;
+            break;
+        }
+    }
+    if (!genderSelected) {
+        genderError.textContent = "Please select a gender";
+        return; // Stop further validation
+    } else {
+        genderError.textContent = ""; // Clear error message
+    }
+
+    // Validate blood group selection
+    var bloodGroupError = document.getElementById("bloodGroupError");
+    var bloodGroupSelected = false;
+    for (var i = 0; i < bloodGroupInputs.length; i++) {
+        if (bloodGroupInputs[i].checked) {
+            bloodGroupSelected = true;
+            break;
+        }
+    }
+    if (!bloodGroupSelected) {
+        bloodGroupError.textContent = "Please select a blood group";
+        return; // Stop further validation
+    } else {
+        bloodGroupError.textContent = ""; // Clear error message
+    }
+
+    // Validate degree selection
+    var degreeError = document.getElementById("degreeError");
+    var degreeSelected = false;
+    for (var i = 0; i < degreeInputs.length; i++) {
+        if (degreeInputs[i].checked) {
+            degreeSelected = true;
+            break;
+        }
+    }
+    if (!degreeSelected) {
+        degreeError.textContent = "Please select at least one degree";
+        return; // Stop further validation
+    } else {
+        degreeError.textContent = ""; // Clear error message
+    }
+
+    // Validate profile photo selection
+    var profilePhotoError = document.getElementById("profilePhotoError");
+    if (profilePhotoInput === "") {
+        profilePhotoError.textContent = "Please select a profile photo";
+        return; // Stop further validation
+    } else {
+        profilePhotoError.textContent = ""; // Clear error message
+    }
+
+    // If all validations pass, you can proceed with form submission
+    alert("Form submitted successfully!");
+   
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Group Form with JavaScript Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Blood Group Form with JavaScript Validation</h2>
+
+<form id="bloodGroupForm">
+    <fieldset>
+        <legend>Blood Group:</legend>
+        <input type="radio" id="A+" name="bloodGroup" value="A+">
+        <label for="A+">A+</label><br>
+        <input type="radio" id="A-" name="bloodGroup" value="A-">
+        <label for="A-">A-</label><br>
+        <input type="radio" id="B+" name="bloodGroup" value="B+">
+        <label for="B+">B+</label><br>
+        <input type="radio" id="B-" name="bloodGroup" value="B-">
+        <label for="B-">B-</label><br>
+        <input type="radio" id="AB+" name="bloodGroup" value="AB+">
+        <label for="AB+">AB+</label><br>
+        <input type="radio" id="AB-" name="bloodGroup" value="AB-">
+        <label for="AB-">AB-</label><br>
+        <input type="radio" id="O+" name="bloodGroup" value="O+">
+        <label for="O+">O+</label><br>
+        <input type="radio" id="O-" name="bloodGroup" value="O-">
+        <label for="O-">O-</label><br>
+    </fieldset>
+    <span id="bloodGroupError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("bloodGroupForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var bloodGroupInputs = document.getElementsByName("bloodGroup");
+    var bloodGroupSelected = false;
+
+    // Check if a blood group option is selected
+    for (var i = 0; i < bloodGroupInputs.length; i++) {
+        if (bloodGroupInputs[i].checked) {
+            bloodGroupSelected = true;
+            break;
+        }
+    }
+
+    // Validate blood group selection
+    var bloodGroupError = document.getElementById("bloodGroupError");
+    if (!bloodGroupSelected) {
+        bloodGroupError.textContent = "Please select a blood group";
+    } else {
+        bloodGroupError.textContent = ""; // Clear error message
+        // You can add more validation here if needed
+
+        // If the form is valid, you can proceed with form submission
+        alert("Form submitted successfully!");
+    
+    }
+});
+</script>
+
+</body>
+</html>

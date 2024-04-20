@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Degree Form with JavaScript Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Degree Form with JavaScript Validation</h2>
+
+<form id="degreeForm">
+    <fieldset>
+        <legend>Degree:</legend>
+        <input type="checkbox" id="sss" name="degree" value="sss">
+        <label for="sss">SSS</label><br>
+        <input type="checkbox" id="hsc" name="degree" value="hsc">
+        <label for="hsc">HSC</label><br>
+        <input type="checkbox" id="bsc" name="degree" value="bsc">
+        <label for="bsc">BSC</label><br>
+    </fieldset>
+    <span id="degreeError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("degreeForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var degreeInputs = document.getElementsByName("degree");
+    var degreeSelected = false;
+
+    // Check if at least one degree option is selected
+    for (var i = 0; i < degreeInputs.length; i++) {
+        if (degreeInputs[i].checked) {
+            degreeSelected = true;
+            break;
+        }
+    }
+
+    // Validate degree selection
+    var degreeError = document.getElementById("degreeError");
+    if (!degreeSelected) {
+        degreeError.textContent = "Please select at least one degree";
+    } else {
+        degreeError.textContent = ""; // Clear error message
+        // You can add more validation here if needed
+
+        // If the form is valid, you can proceed with form submission
+        alert("Form submitted successfully!");
+      
+    }
+});
+</script>
+
+</body>
+</html>
