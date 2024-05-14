@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Concert in the Park",
+      "category": "Music",
+      "description": "Enjoy live music performances in the park every Saturday."
+    },
+    {
+      "id": 2,
+      "name": "Basketball Tournament",
+      "category": "Sport",
+      "description": "Participate in our annual basketball tournament and win exciting prizes."
+    },
+    {
+      "id": 3,
+      "name": "Art Exhibition",
+      "category": "Art",
+      "description": "Explore beautiful artworks by local artists at our art exhibition."
+    },
+    {
+      "id": 4,
+      "name": "Food Festival",
+      "category": "Food",
+      "description": "Savor delicious cuisines from around the world at our food festival."
+    }
+  ]
+  

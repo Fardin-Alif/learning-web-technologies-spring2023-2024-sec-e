@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Sign Up Form -->
+<form id="sign-up-form" onsubmit="return validateForm()" method="post">
+    <h2>Join Our Event</h2>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <span class="error" id="name-error"></span><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <span class="error" id="email-error"></span><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <span class="error" id="password-error"></span><br>
+
+    <label for="confirm-password">Confirm Password:</label><br>
+    <input type="password" id="confirm-password" name="confirm-password"><br>
+    <span class="error" id="confirm-password-error"></span><br>
+
+    <input type="submit" value="Sign Up">
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>
+
